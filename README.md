@@ -16,6 +16,8 @@ Bu depoda bulunan projeler:
 
 5. [UseReducer](/UseReducer): `useReducer` kullanımını gösteren proje. React projelerinde state yönetimini nasıl geliştirebileceğinizi öğrenmek için bu projeyi inceleyebilirsiniz.
 
+6. [UseTransition](/UseTransition): `useTransition` kullanımını içeren proje. React bileşenlerinde giriş animasyonlarını nasıl oluşturabileceğinizi öğrenmek için bu projeyi inceleyebilirsiniz.
+
 ## Nasıl Başlamalı?
 
 Her bir proje klasörünün içinde, projeyi çalıştırmak ve kullanmak için gerekli talimatlar bulunmaktadır. İlgili projenin klasörüne gidin ve talimatları izleyin.
