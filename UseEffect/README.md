@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# `useEffect` Kullanımı
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bu README dosyası, React'in bir kancası olan `useEffect`'i kullanarak nasıl yan etkileri yönetebileceğinizi açıklar. `useEffect`, React uygulamalarında bileşenlerin monte edilmesi, güncellenmesi veya sökülmesi gibi yan etkileri ele almak için kullanılır.
 
-## Available Scripts
+## Ne İşe Yarar?
 
-In the project directory, you can run:
+`useEffect`, React bileşenlerinin yaşam döngüsü olaylarına benzer şekilde çalışır ve yan etkileri işlemek için kullanılır. Bu yan etkiler, API çağrıları, abonelikler, bileşenlerin monte edilmesi ve sökülmesi gibi işlemleri içerebilir. `useEffect`, bu tür işlemleri bileşenler içinde güvenli bir şekilde yönetmenizi sağlar.
 
-### `npm start`
+## Nasıl Kullanılır?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+`useEffect`, iki argüman alır: bir işlev ve bir bağımlılıklar dizisi. İşlev, yan etkileri gerçekleştirecek olan fonksiyonu temsil eder ve bağımlılıklar dizisi, işlemin ne zaman çalıştırılacağını belirtir.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```javascript
+import React, { useEffect, useState } from 'react';
 
-### `npm test`
+function MyComponent() {
+  const [data, setData] = useState([]);
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  useEffect(() => {
+    // Bu kod, bileşen her güncellendiğinde çalışır
+    fetchData();
+  }, []); // Boş bağımlılıklar dizisi, sadece bileşen monte edildiğinde çalışır
 
-### `npm run build`
+  const fetchData = async () => {
+    // API çağrısı yap ve verileri al
+    const response = await fetch('https://example.com/api/data');
+    const result = await response.json();
+    setData(result);
+  };
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  return (
+    <div>
+      <ul>
+        {data.map((item) => (
+          <li key={item.id}>{item.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+export default MyComponent;
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Yukarıdaki örnekte, useEffect kullanarak bileşenin monte edildiğinde fetchData fonksiyonunu çağırıyoruz. Boş bağımlılıklar dizisi, bu efektin yalnızca bileşen monte edildiğinde çalışmasını sağlar.
 
-### `npm run eject`
+Dikkat Edilmesi Gerekenler
+useEffect içindeki işlevin temizlenmesi gereken durumlar için bir temizleyici işlev döndürmelisiniz.
+Yan etkilerinizi uygun şekilde yönetmek ve bellek sızıntılarını önlemek için useEffect'i doğru bir şekilde kullanmalısınız.
+Bağımlılıklar dizisini kullanarak efektin ne zaman çalıştırılacağını kontrol edin. Boş bir dizi, efektin yalnızca monte edilme veya sökülme anında çalışmasını sağlar.
+Örnek Uygulama
+Bu projenin kök dizinindeki src klasöründe, useEffect kullanımını içeren örnek bir React uygulaması bulunmaktadır. Uygulamayı başlatmak için aşağıdaki adımları izleyebilirsiniz:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Bu projeyi bilgisayarınıza klonlayın.
+Terminalde projenin kök dizinine gidin.
+npm install komutunu çalıştırarak bağımlılıkları yükleyin.
+npm start komutunu çalıştırarak uygulamayı başlatın.
+Uygulama, useEffect kullanımının nasıl gerçekleştirileceğini göstermektedir.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
