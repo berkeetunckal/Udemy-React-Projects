@@ -45,6 +45,8 @@ function Counter() {
 
 export default Counter;
 
+```
+
 Yukarıdaki örnekte, useReducer'ı kullanarak bir sayacı bileşeni oluşturduk. Reducer işlevi, INCREMENT veya DECREMENT eylemlerine göre state'i günceller. dispatch işlevi, bu eylemleri tetiklemek için kullanılır.
 
 Dikkat Edilmesi Gerekenler

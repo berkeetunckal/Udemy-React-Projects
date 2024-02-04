@@ -22,6 +22,8 @@ function MyComponent({ data }) {
   // ...
 }
 
+```
+
 Yukarıdaki örnekte, calculatedData sadece data değiştiğinde hesaplanır. useMemo'yu kullanmak, her render sırasında bu hesaplamanın tekrar tekrar yapılmamasını sağlar.
 
 ## Dikkat Edilmesi Gerekenler
