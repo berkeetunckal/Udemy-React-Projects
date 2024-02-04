@@ -1,0 +1,81 @@
+.App{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.task-create{
+    width: 350px;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.task-label{
+    margin: 10px 0;
+}
+
+.task-input{
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.task-button{
+    margin: 10px 0;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.task-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.task-show{
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    width: 350px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.delete-button{
+    margin-left: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    background-color: red;
+}
+
+.delete-button:hover{
+    background-color: #ccc;
+}
+
+.task-edit:hover{
+    background-color: #ccc;
+}
+
+.task-edit{
+    margin-right: 10px ;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer; 
+}
